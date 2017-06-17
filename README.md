@@ -15,6 +15,14 @@ end
 Then disassembly an Elixir module:
 
     $ mix debeam Some.Module > some_module.erl
-    $ vim some_module.erl
+    $ cat some_module.erl
+    -compile(no_auto_import).
+
+    -file("lib/simple_module.ex", 1).
+
+    -module('Elixir.Simple.Module').
+
+    -export(['__info__'/1]).
+    ...
 
 Have fun.
